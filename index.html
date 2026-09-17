@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ASP/PB Wan Nazri Wan Mohamed Nor | PKFZ</title>
+
+    <meta name="description"
+          content="Digital Business Card - ASP/PB Wan Nazri Wan Mohamed Nor, HOD Auxiliary Police, Security Department, Port Klang Free Zone">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #eef3f8;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 15px;
+            color: #102a43;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 1100px;
+            min-height: 600px;
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 40% 60%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        /* LEFT SIDE */
+
+        .left {
+            background: linear-gradient(
+                145deg,
+                #062b55,
+                #0b4f91,
+                #082f5c
+            );
+
+            color: white;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .left::before {
+            content: "";
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            top: -120px;
+            left: -150px;
+        }
+
+        .left::after {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            transform: rotate(45deg);
+            background: rgba(255,255,255,0.04);
+            bottom: -250px;
+            right: -150px;
+        }
+
+        .photo-container {
+            width: 280px;
+            height: 350px;
+            border: 5px solid white;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+            background: #ddd;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .motto {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .motto h3 {
+            font-size: 17px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            line-height: 1.8;
+        }
+
+        .line {
+            width: 70px;
+            height: 4px;
+            background: #3da9ff;
+            margin-top: 18px;
+        }
+
+        /* RIGHT SIDE */
+
+        .right {
+            padding: 45px 55px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .logo {
+            font-size: 58px;
+            font-weight: 900;
+            color: #092e60;
+            letter-spacing: -4px;
+        }
+
+        .logo-sub {
+            font-size: 12px;
+            letter-spacing: 5px;
+            color: #193c67;
+            text-align: center;
+            margin-top: -5px;
+        }
+
+        .tagline {
+            text-align: center;
+            margin-top: 12px;
+            color: #183a62;
+            letter-spacing: 4px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .name-section {
+            margin-top: 45px;
+        }
+
+        .rank {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1267b1;
+        }
+
+        .name {
+            font-size: 39px;
+            line-height: 1.15;
+            font-weight: 800;
+            color: #102f59;
+            margin-top: 8px;
+        }
+
+        .name-line {
+            width: 120px;
+            height: 5px;
+            background: #1886d5;
+            margin-top: 18px;
+        }
+
+        .position {
+            font-size: 25px;
+            font-weight: 600;
+            margin-top: 25px;
+            color: #1c3554;
+        }
+
+        .department {
+            font-size: 21px;
+            color: #64748b;
+            margin-top: 5px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #1268b3;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            flex-shrink: 0;
+        }
+
+        .contact-text {
+            border-left: 2px solid #d9e2ec;
+            padding-left: 20px;
+        }
+
+        .contact-main {
+            font-size: 20px;
+            font-weight: bold;
+            color: #102f59;
+        }
+
+        .contact-label {
+            font-size: 15px;
+            color: #718096;
+            margin-top: 3px;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            margin-top: auto;
+            padding-top: 40px;
+            border-top: 1px solid #e1e8ef;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: 13px;
+            letter-spacing: 4px;
+            color: #31577e;
+        }
+
+        .footer-sub {
+            margin-top: 8px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #8a9bb0;
+        }
+
+        /* BUTTONS */
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            border: none;
+            padding: 13px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.25s;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: #1268b3;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0b4f91;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #e8f1f8;
+            color: #123e68;
+        }
+
+        .btn-secondary:hover {
+            background: #d6e6f2;
+            transform: translateY(-2px);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .card {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+            }
+
+            .left {
+                padding: 35px 25px;
+            }
+
+            .photo-container {
+                width: 230px;
+                height: 290px;
+            }
+
+            .right {
+                padding: 35px 25px;
+            }
+
+            .header {
+                justify-content: center;
+            }
+
+            .name {
+                font-size: 30px;
+            }
+
+            .position {
+                font-size: 21px;
+            }
+
+            .department {
+                font-size: 18px;
+            }
+
+            .contact-main {
+                font-size: 17px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                text-align: center;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 450px) {
+
+            .photo-container {
+                width: 200px;
+                height: 250px;
+            }
+
+            .name {
+                font-size: 27px;
+            }
+
+            .rank {
+                font-size: 23px;
+            }
+
+            .logo {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <!-- LEFT -->
+    <section class="left">
+
+        <div class="photo-container">
+            <img src="nazri.jpg"
+                 alt="ASP/PB Wan Nazri Wan Mohamed Nor">
+        </div>
+
+        <div class="motto">
+            <h3>
+                SECURE PEOPLE<br>
+                SAFER OPERATIONS<br>
+                STRONGER TOMORROW
+            </h3>
+
+            <div class="line"></div>
+        </div>
+
+    </section>
+
+
+    <!-- RIGHT -->
+    <section class="right">
+
+        <!-- PKFZ -->
+        <div class="header">
+
+            <div>
+                <div class="logo">
+                    PKFZ
+                </div>
+
+                <div class="logo-sub">
+                    PORT KLANG FREE ZONE
+                </div>
+
+                <div class="tagline">
+                    A BETTER TOMORROW<br>
+                    TOGETHER
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- NAME -->
+        <div class="name-section">
+
+            <div class="rank">
+                ASP/PB
+            </div>
+
+            <div class="name">
+                Wan Nazri Wan Mohamed Nor
+            </div>
+
+            <div class="name-line"></div>
+
+            <div class="position">
+                HOD Auxiliary Police
+            </div>
+
+            <div class="department">
+                Security Department
+            </div>
+
+        </div>
+
+
+        <!-- CONTACT -->
+        <div class="contact">
+
+            <!-- EMAIL -->
+            <div class="contact-item">
+
+                <div class="icon">
+                    ✉
+                </div>
+
+                <div class="contact-text">
+
+                    <div class="contact-main">
+                        <a href="mailto:nazri@pkfz.com"
+                           style="text-decoration:none;color:inherit;">
+                            nazri@pkfz.com
+                        </a>
+                    </div>
+
+                    <div class="contact-label">
+                        Email (Company)
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHONE -->
+            <div class="contact-item">
+
+                <div class="icon">
+                    ☎
+                </div>
+
+                <div class="contact-text">
+
+                    <div class="contact-main">
+                        <a href="tel:+60102130046"
+                           style="text-decoration:none;color:inherit;">
+                            010 213 0046
+                        </a>
+                    </div>
+
+                    <div class="contact-label">
+                        Phone No.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DEPARTMENT -->
+            <div class="contact-item">
+
+                <div class="icon">
+                    🛡
+                </div>
+
+                <div class="contact-text">
+
+                    <div class="contact-main">
+                        Security
+                    </div>
+
+                    <div class="contact-label">
+                        Department
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- POSITION -->
+            <div class="contact-item">
+
+                <div class="icon">
+                    👤
+                </div>
+
+                <div class="contact-text">
+
+                    <div class="contact-main">
+                        HOD Auxiliary Police
+                    </div>
+
+                    <div class="contact-label">
+                        Position
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+        <div class="buttons">
+
+            <a class="btn btn-primary"
+               href="mailto:nazri@pkfz.com">
+                ✉ Contact
+            </a>
+
+            <a class="btn btn-secondary"
+               href="tel:+60102130046">
+                ☎ Call
+            </a>
+
+        </div>
+
+
+        <!-- FOOTER -->
+        <div class="footer">
+
+            <div class="footer-title">
+                PORT KLANG FREE ZONE
+            </div>
+
+            <div class="footer-sub">
+                FACILITATING GLOBAL OPPORTUNITIES
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+</body>
+</html>
